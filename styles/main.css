@@ -1,0 +1,22 @@
+
+html {
+  background-color: #FDEAB8;
+  font-family: 'Dosis', sans-serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: WHITE;
+}
+
+main {
+  /*background-color: green;*/
+  /* Center on page */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+p {
+  /*background-color: blue;*/
+}
