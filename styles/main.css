@@ -4,7 +4,7 @@ html {
   font-family: 'Dosis', sans-serif;
   font-size: 60px;
   font-weight: bold;
-  color: WHITE;
+  color: white;
 }
 
 main {
@@ -17,6 +17,28 @@ main {
   transform: translate(-50%, -50%)
 }
 
-p {
-  /*background-color: blue;*/
+input {
+    background: transparent;
+    border: none;
+    font-family: 'Dosis', sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
 }
+
+input:focus {
+  outline: none;
+}
+
+/* Set color of the placeholder text in the input elements */
+input::-webkit-input-placeholder  { color: white; } /* Webkit */
+input:-moz-placeholder { color: white; } /* Firefox <= 18 */
+input::-moz-placeholder { color: white; } /* Firefox >= 19 */
+input:-ms-input-placeholder {  color: white; } /* Internet Explorer */
+
+::selection { background: #eeeefe; }/* Common browsers */
+::-webkit-selection { background: #eeeefe; } /* Webkit */
+:-moz-selection { background: #eeeefe; } /* Firefox <= 18 */
+::-moz-selection { background: #eeeefe; } /* Firefox >= 19 */
+::-ms-selection { background: #eeeefe; } /* Internet Explorer */
