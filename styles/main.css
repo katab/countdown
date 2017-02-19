@@ -2,7 +2,7 @@
 html {
   background-color: #FDEAB8;
   font-family: 'Dosis', sans-serif;
-  font-size: 60px;
+  font-size: 80px;
   font-weight: bold;
   color: white;
 }
@@ -21,7 +21,7 @@ input {
     background: transparent;
     border: none;
     font-family: 'Dosis', sans-serif;
-    font-size: 60px;
+    font-size: 80px;
     font-weight: bold;
     color: white;
     text-align: center;

@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <meta name="author" content="Katarina Berg">
-    <title>Count the days</title>
+    <title>Count down</title>
     <link href="styles/main.css"
           rel="stylesheet"
           type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Dosis|Maven+Pro|Nunito|Open+Sans+Condensed:300|Quicksand" rel="stylesheet">
   </head>
+
   <body>
     <main>
       <!-- <p>Count the number of days between</p> -->
       <form>
+        <!-- Should the from_date default to today instead? JavaScript! -->
         <input type="text" name="from_date" placeholder="YYYYMMDD" maxlength="8" size="10"/>
         ->
         <input type="text" name="to_date" placeholder="YYYYMMDD" maxlength="8" size="10"/>
       </form>
     </main>
+    <script src="scripts/main.js"></script>
   </body>
+
 </html>
