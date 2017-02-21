@@ -9,6 +9,7 @@ html {
 
 main {
   /*background-color: green;*/
+  text-align: center;
   /* Center on page */
   position: absolute;
   top: 50%;
@@ -31,12 +32,18 @@ input:focus {
   outline: none;
 }
 
+#output {
+  /*background-color: blue;*/
+  font-size: 150px;
+}
+
 /* Set color of the placeholder text in the input elements */
 input::-webkit-input-placeholder  { color: white; } /* Webkit */
 input:-moz-placeholder { color: white; } /* Firefox <= 18 */
 input::-moz-placeholder { color: white; } /* Firefox >= 19 */
 input:-ms-input-placeholder {  color: white; } /* Internet Explorer */
 
+/* Set color of text selection in the input elements */
 ::selection { background: #eeeefe; }/* Common browsers */
 ::-webkit-selection { background: #eeeefe; } /* Webkit */
 :-moz-selection { background: #eeeefe; } /* Firefox <= 18 */
