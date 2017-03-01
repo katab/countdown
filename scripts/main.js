@@ -2,7 +2,6 @@
 var firstInput = document.getElementById("from-date");
 var secondInput = document.getElementById("to-date");
 var output = document.getElementById("output");
-var messageIsDisplayed = false;
 
 firstInput.onkeyup = function(e) {
   var targetInput = e.target;
@@ -17,13 +16,13 @@ secondInput.onkeyup = function(e) {
 function onkeyupInternal(target, other, targetIsFirst) {
   var targetDone = maxLengthAchieved(target);
   var otherDone = maxLengthAchieved(other);
-  if (targetDone && otherDone && !messageIsDisplayed) {
+  if (targetDone && otherDone) {
     var first = targetIsFirst ? target : other;
     var second = targetIsFirst ? other : target;
     countDown(first, second);
   } else if (targetDone && !otherDone) {
     other.focus();
-  } else if (!targetDone && messageIsDisplayed) {
+  } else if (!targetDone) {
     deleteMessage();
   }
 }
@@ -65,6 +64,8 @@ function getDateInUtc(dateString) {
 }
 
 function displayMessage(message) {
+  deleteMessage();
+
   var paragraph = document.createElement("p");
   paragraph.id = "message";
   var text = document.createTextNode(message);
@@ -75,17 +76,15 @@ function displayMessage(message) {
 
   var form = document.getElementById("form");
   form.setAttribute("class", "top");
-
-  messageIsDisplayed = true;
 }
 
 function deleteMessage() {
-  var parent = document.getElementById("output");
-  var child = document.getElementById("message");
-  parent.removeChild(child);
+  var message = document.getElementById("message");
+  if (message == null) return;
+
+  var output = document.getElementById("output");
+  output.removeChild(message);
 
   var form = document.getElementById("form");
   form.setAttribute("class", "center");
-
-  messageIsDisplayed = false;
 }
