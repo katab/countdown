@@ -22,48 +22,41 @@ input:focus {
   outline: none;
 }
 
-form.center {
+form {
   /*background-color: blue;*/
   font-size: 80px;
-  /* Center on page */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
 }
 
-form.top {
-  /*background-color: yellow;*/
+.top {
   font-size: 30px;
   position: relative;
   top: 30px;
 }
 
-#output {
-  /*background-color: red;*/
-  font-size: 150px;
-  /* Center on page */
+.center {
   position: absolute;
   top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
-/* Remove the margin set by the default user agent stylesheet */
+
+#output {
+  /*background-color: red;*/
+  font-size: 150px;
+}
+
 #message {
+  /* Remove margin set by the user agent stylesheet */
   margin: 0;
 }
 
-/* Set color of the placeholder text in the input elements */
-input::-webkit-input-placeholder  { color: white; } /* Webkit */
-input:-moz-placeholder { color: white; } /* Firefox <= 18 */
-input::-moz-placeholder { color: white; } /* Firefox >= 19 */
-input:-ms-input-placeholder {  color: white; } /* Internet Explorer */
+/* Set color of placeholder text */
+::-webkit-input-placeholder  { color: white; } /* Webkit */
+:-moz-placeholder { color: white; } /* Firefox <= 18 */
+::-moz-placeholder { color: white; } /* Firefox >= 19 */
+:-ms-input-placeholder {  color: white; } /* Internet Explorer */
 
-/* Set color of text selection in the input elements */
-::selection { background: #eeeefe; }/* Common browsers */
-::-webkit-selection { background: #eeeefe; } /* Webkit */
-:-moz-selection { background: #eeeefe; } /* Firefox <= 18 */
-::-moz-selection { background: #eeeefe; } /* Firefox >= 19 */
-::-ms-selection { background: #eeeefe; } /* Internet Explorer */
+/* Set background color of text selection */
+::selection { background: #eeeefe; }
+::-moz-selection { background: #eeeefe; } /* Firefox */
