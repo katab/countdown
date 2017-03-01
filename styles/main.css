@@ -2,39 +2,57 @@
 html {
   background-color: #FDEAB8;
   font-family: 'Dosis', sans-serif;
-  font-size: 80px;
-  font-weight: bold;
   color: white;
 }
 
 main {
   /*background-color: green;*/
   text-align: center;
-  /* Center on page */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%)
 }
 
 input {
-    background: transparent;
-    border: none;
-    font-family: 'Dosis', sans-serif;
-    font-size: 80px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
+  background: transparent;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: center;
 }
 
 input:focus {
   outline: none;
 }
 
-#output {
+form.center {
   /*background-color: blue;*/
+  font-size: 80px;
+  /* Center on page */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+form.top {
+  /*background-color: yellow;*/
+  font-size: 30px;
+  position: relative;
+  top: 30px;
+}
+
+#output {
+  /*background-color: red;*/
   font-size: 150px;
+  /* Center on page */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+/* Remove the margin set by the default user agent stylesheet */
+#message {
+  margin: 0;
 }
 
 /* Set color of the placeholder text in the input elements */

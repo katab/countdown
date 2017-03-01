@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   <head>
     <meta charset="utf-8">
+    <title>Countdown</title>
     <meta name="author" content="Katarina Berg">
-    <title>Count down</title>
+    <meta name="description" content="Countdown is a website that lets you
+    calculate the number of days between two specified dates.">
     <link href="styles/main.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
   </head>
 
   <body>
     <main>
-      <form>
+      <form class="center" id="form">
         <!-- Should the from_date default to today instead? -->
-        <input type="text" name="from-date" id="from-date" placeholder="YYYYMMDD" maxlength="8" size="10" autofocus/>
+        <input type="text" name="from-date" id="from-date" placeholder="YYYYMMDD"
+        maxlength="8" size="10" autofocus/>
         ->
-        <input type="text" name="to-date" id="to-date" placeholder="YYYYMMDD" maxlength="8" size="10"/>
+        <input type="text" name="to-date" id="to-date" placeholder="YYYYMMDD"
+        maxlength="8" size="10"/>
       </form>
       <div id="output"></div>
     </main>
