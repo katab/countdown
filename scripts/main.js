@@ -5,27 +5,25 @@ var output = document.getElementById("output");
 var messageIsDisplayed = false;
 
 firstInput.onkeyup = function(e) {
-  var target = e.target;
-  if (maxLengthAchieved(target)) {
-    if (maxLengthAchieved(secondInput) && messageIsDisplayed == false) {
-      countDown(target, secondInput);
-    } else if (maxLengthAchieved(secondInput) == false) {
-      secondInput.focus();
-    }
-  } else if (messageIsDisplayed) {
-    deleteMessage();
-  }
+  var targetInput = e.target;
+  onkeyupInternal(targetInput, secondInput, true);
 }
 
 secondInput.onkeyup = function(e) {
-  var target = e.target;
-  if (maxLengthAchieved(target)) {
-    if (maxLengthAchieved(firstInput) && messageIsDisplayed == false) {
-      countDown(firstInput, target);
-    } else if (maxLengthAchieved(firstInput) == false) {
-      firstInput.focus();
-    }
-  } else if (messageIsDisplayed) {
+  var targetInput = e.target;
+  onkeyupInternal(targetInput, firstInput, false);
+}
+
+function onkeyupInternal(target, other, targetIsFirst) {
+  var targetDone = maxLengthAchieved(target);
+  var otherDone = maxLengthAchieved(other);
+  if (targetDone && otherDone && !messageIsDisplayed) {
+    var first = targetIsFirst ? target : other;
+    var second = targetIsFirst ? other : target;
+    countDown(first, second);
+  } else if (targetDone && !otherDone) {
+    other.focus();
+  } else if (!targetDone && messageIsDisplayed) {
     deleteMessage();
   }
 }
@@ -41,7 +39,7 @@ function countDown(from, to) {
   var toDate = getDateInUtc(to);
 
   if (fromDate == null || toDate == null)  {
-    displayMessage("Oops invalid date");
+    displayMessage("Oops invalid dates");
     return;
   }
 
