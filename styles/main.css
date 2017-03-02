@@ -6,7 +6,6 @@ html {
 }
 
 main {
-  /*background-color: green;*/
   text-align: center;
 }
 
@@ -23,7 +22,6 @@ input:focus {
 }
 
 form {
-  /*background-color: blue;*/
   font-size: 80px;
 }
 
@@ -42,13 +40,11 @@ form {
 }
 
 #output {
-  /*background-color: red;*/
   font-size: 150px;
 }
 
 #message {
-  /* Remove margin set by the user agent stylesheet */
-  margin: 0;
+  margin: 0; /* Remove margin set by the user agent stylesheet */
 }
 
 /* Set color of placeholder text */

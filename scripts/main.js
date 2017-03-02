@@ -1,7 +1,6 @@
 
 var firstInput = document.getElementById("from-date");
 var secondInput = document.getElementById("to-date");
-var output = document.getElementById("output");
 
 firstInput.onkeyup = function(e) {
   var targetInput = e.target;
@@ -19,11 +18,10 @@ function onkeyupInternal(target, other, targetIsFirst) {
   if (targetDone && otherDone) {
     var first = targetIsFirst ? target : other;
     var second = targetIsFirst ? other : target;
-    countDown(first, second);
-  } else if (targetDone && !otherDone) {
-    other.focus();
-  } else if (!targetDone) {
-    deleteMessage();
+    var result = countDown(first, second);
+    displayResult(result);
+  } else {
+    deleteResult();
   }
 }
 
@@ -37,17 +35,14 @@ function countDown(from, to) {
   var fromDate = getDateInUtc(from);
   var toDate = getDateInUtc(to);
 
-  if (fromDate == null || toDate == null)  {
-    displayMessage("Oops invalid dates");
-    return;
-  }
+  if (fromDate == null || toDate == null) return null;
 
   var fromDateMilliseconds = fromDate.getTime();
   var toDateMilliseconds = toDate.getTime();
   var millisecondsPerDay = 1000*60*60*24;
   var diff = (toDateMilliseconds - fromDateMilliseconds) / millisecondsPerDay;
 
-  displayMessage(diff + " days left");
+  return diff;
 }
 
 function getDateInUtc(dateString) {
@@ -63,14 +58,21 @@ function getDateInUtc(dateString) {
   return date;
 }
 
-function displayMessage(message) {
-  deleteMessage();
+function displayResult(result) {
+  deleteResult();
 
   var paragraph = document.createElement("p");
   paragraph.id = "message";
+
+  var message;
+  if (result == null) {
+    message = "Oops invalid dates";
+  } else {
+    message = result + " days left";
+  }
+
   var text = document.createTextNode(message);
   paragraph.appendChild(text);
-
   var output = document.getElementById("output");
   output.appendChild(paragraph);
 
@@ -78,7 +80,7 @@ function displayMessage(message) {
   form.setAttribute("class", "top");
 }
 
-function deleteMessage() {
+function deleteResult() {
   var message = document.getElementById("message");
   if (message == null) return;
 
