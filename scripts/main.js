@@ -3,22 +3,16 @@ var firstInput = document.getElementById("from-date");
 var secondInput = document.getElementById("to-date");
 
 firstInput.onkeyup = function(e) {
-  var targetInput = e.target;
-  onkeyupInternal(targetInput, secondInput, true);
-}
+  onkeyupInternal(firstInput, secondInput);
+};
 
 secondInput.onkeyup = function(e) {
-  var targetInput = e.target;
-  onkeyupInternal(targetInput, firstInput, false);
-}
+  onkeyupInternal(firstInput, secondInput);
+};
 
-function onkeyupInternal(target, other, targetIsFirst) {
-  var targetDone = maxLengthAchieved(target);
-  var otherDone = maxLengthAchieved(other);
-  if (targetDone && otherDone) {
-    var first = targetIsFirst ? target : other;
-    var second = targetIsFirst ? other : target;
-    var result = countDown(first, second);
+function onkeyupInternal(firstInput, secondInput) {
+  if (maxLengthAchieved(firstInput) && maxLengthAchieved(secondInput)) {
+    var result = countDown(firstInput, secondInput);
     displayResult(result);
   } else {
     deleteResult();
