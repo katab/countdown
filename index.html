@@ -7,21 +7,25 @@
     <meta name="author" content="Katarina Berg">
     <meta name="description" content="Countdown is a website that lets you
     calculate the number of days between two specified dates.">
-    <link href="styles/main.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css" type="text/css">
+    <link rel="stylesheet" href="styles/small.css" media="(max-width: 767px)">
+    <link rel="stylesheet" href="styles/large.css" media="(min-width: 768px)">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dosis">
   </head>
 
   <body>
     <main>
       <form class="center" id="form">
         <input type="text" name="from-date" id="from-date" placeholder="YYYYMMDD"
-        maxlength="8" size="10" autofocus/>
+        pattern="\d*" maxlength="8" size="10" autofocus/>
         ->
         <input type="text" name="to-date" id="to-date" placeholder="YYYYMMDD"
-        maxlength="8" size="10"/>
+        pattern="\d*" maxlength="8" size="10"/>
       </form>
       <div class="center" id="output"></div>
     </main>
+    <script src="scripts/date_helper.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 
