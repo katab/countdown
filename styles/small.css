@@ -1,0 +1,24 @@
+/* CSS for smartphones and tablets */
+
+@media (orientation: portrait) {
+  .center {
+    font-size: 300%;
+  }
+}
+@media (orientation: landscape) {
+  .center {
+    font-size: 250%;
+  }
+}
+
+.center {
+  top: 30%;
+}
+
+.top {
+  font-size: 130%;
+}
+
+#output {
+  font-size: 350%;
+}

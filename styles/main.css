@@ -21,26 +21,16 @@ input:focus {
   outline: none;
 }
 
-form {
-  font-size: 80px;
-}
-
-.top {
-  font-size: 30px;
-  position: relative;
-  top: 30px;
-}
-
 .center {
   position: absolute;
-  top: 50%;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
 }
 
-#output {
-  font-size: 150px;
+.top {
+  position: relative;
+  top: 1rem;
 }
 
 #message {

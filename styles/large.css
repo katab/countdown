@@ -1,0 +1,14 @@
+/* CSS for desktops */
+
+.center {
+  font-size: 400%;
+  top: 50%;
+}
+
+.top {
+  font-size: 200%;
+}
+
+#output {
+  font-size: 800%;
+}

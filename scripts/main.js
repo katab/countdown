@@ -46,6 +46,7 @@
 
     var form = document.getElementById("form");
     form.setAttribute("class", "top");
+    document.activeElement.blur(); // To hide virtual keypad
   }
 
   function deleteResult() {
