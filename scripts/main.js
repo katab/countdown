@@ -1,15 +1,23 @@
-(function () {
+var Main = (function () {
 
-  var firstInput = document.getElementById("from-date"),
-      secondInput = document.getElementById("to-date");
+  /*
+  need an init function which is called when the html page loads,
+  because otherwise everything inside this module will be run when
+  main.js is loaded - even though the html hasn't been loaded yet
+  and thus the elements don't exist (e.g. when running unit tests)
+  */
+  function init() {
+    var firstInput = document.getElementById("from-date"),
+        secondInput = document.getElementById("to-date");
 
-  firstInput.onkeyup = function(e) {
-    onkeyupInternal(firstInput, secondInput);
-  };
+    firstInput.onkeyup = function(e) {
+      onkeyupInternal(firstInput, secondInput);
+    };
 
-  secondInput.onkeyup = function(e) {
-    onkeyupInternal(firstInput, secondInput);
-  };
+    secondInput.onkeyup = function(e) {
+      onkeyupInternal(firstInput, secondInput);
+    };
+  }
 
   function onkeyupInternal(firstInput, secondInput) {
     if (maxLengthAchieved(firstInput) && maxLengthAchieved(secondInput)) {
@@ -21,6 +29,10 @@
   }
 
   function maxLengthAchieved(element) {
+    if (!element || !element.hasAttribute("maxlength") || !element.value) {
+      return false;
+    }
+
     var maxLength = parseInt(element.getAttribute("maxlength"), 10);
     var currentLength = element.value.length;
     return currentLength >= maxLength;
@@ -46,7 +58,7 @@
 
     var form = document.getElementById("form");
     form.setAttribute("class", "top");
-    document.activeElement.blur(); // To hide virtual keypad
+    document.activeElement.blur(); // to hide virtual keypad
   }
 
   function deleteResult() {
@@ -59,4 +71,10 @@
     var form = document.getElementById("form");
     form.setAttribute("class", "center");
   }
+
+  return {
+    init: init,
+    maxLengthAchieved: maxLengthAchieved //return this for unit testing
+  };
+
 })();

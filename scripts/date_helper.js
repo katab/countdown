@@ -1,6 +1,8 @@
 var DateHelper = (function () {
 
   function getDateInUtc(date) {
+    if (date == null) return null;
+
     var year = date.substr(0,4);
     var month = date.substr(4,2);
     var day = date.substr(6,2);
@@ -14,6 +16,8 @@ var DateHelper = (function () {
   }
 
   function countDown(fromDate, toDate) {
+    if (fromDate == null || toDate == null) return null;
+
     var fromDateUtc = getDateInUtc(fromDate);
     var toDateUtc = getDateInUtc(toDate);
 
@@ -28,7 +32,8 @@ var DateHelper = (function () {
   }
 
   return {
-    countDown: countDown
+    countDown: countDown,
+    getDateInUtc: getDateInUtc //return this for unit testing
   };
 
 })();
