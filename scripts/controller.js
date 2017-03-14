@@ -1,9 +1,9 @@
-var Main = (function () {
+var Controller = (function () {
 
   /*
   need an init function which is called when the html page loads,
   because otherwise everything inside this module will be run when
-  main.js is loaded - even though the html hasn't been loaded yet
+  controller.js is loaded - even though the html hasn't been loaded yet
   and thus the elements don't exist (e.g. when running unit tests)
   */
   function init() {
@@ -21,7 +21,7 @@ var Main = (function () {
 
   function onkeyupInternal(firstInput, secondInput) {
     if (maxLengthAchieved(firstInput) && maxLengthAchieved(secondInput)) {
-      var result = DateHelper.countDown(firstInput.value, secondInput.value);
+      var result = DateService.countDown(firstInput.value, secondInput.value);
       displayResult(result);
     } else {
       deleteResult();

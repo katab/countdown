@@ -1,4 +1,4 @@
-var DateHelper = (function () {
+var DateService = (function () {
 
   function getDateInUtc(date) {
     if (date == null) return null;
